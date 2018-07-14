@@ -1,9 +1,8 @@
 package com.company;
-
 import java.io.*;
 
 public class FileUtilities {
-    public static void Validate(String input) {
+    public static void validate(String input) {
         String regex2 = "[\\n\\r]";
         String regex3 = "[\\040]";
         String regex4 = "[1-9][0-9]+";
@@ -18,7 +17,7 @@ public class FileUtilities {
             }
         }
     }
-    public static void writeFile(String canonicalFilename, String text)
+    public static void writeToFile(String canonicalFilename, String text)
             throws IOException
     {
         File file = new File (canonicalFilename);

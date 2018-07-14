@@ -1,14 +1,20 @@
 package com.company;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import static com.company.Main.printMenu;
 
-public class getUserInput extends Main {
-    getUserInput() throws IOException {
+public class GetUserInput  {
+    public static void main(String[] args){}
+    static String[] contentUSE;
+    static String[] strings;
+    static String content;
+    static String filename;
 
+    void getUserInput() throws IOException {
         Character userOption = null;
         do {
+
             for (int i = 0; i < contentUSE.length - 1; i++) {
                 System.out.println(contentUSE[i]);
                 if (i==contentUSE.length-2) printMenu();
@@ -17,7 +23,7 @@ public class getUserInput extends Main {
             userOption = (char) br.read();
             switch (userOption) {
                 case 'a' | 'A':
-                    FileUtilities.Validate(content);
+                    FileUtilities.validate(content);
                     break;
                 case 'b':
                     BufferedReader as = new BufferedReader(new InputStreamReader(System.in));
@@ -42,7 +48,7 @@ public class getUserInput extends Main {
                     break;
                 case 'd':
                     String str = String.join("", contentUSE);
-                    FileUtilities.writeFile(filename, str);
+                    FileUtilities.writeToFile(filename, str);
                     break;
                 case 'e':
                     BufferedReader ab = new BufferedReader(new InputStreamReader(System.in));
@@ -52,7 +58,7 @@ public class getUserInput extends Main {
                     int index = Integer.parseInt(ab.readLine());
                     System.out.print("Insert number:");
                     int num = Integer.parseInt(ab.readLine());
-                    CRUD.InsertInPosition(contentUSE, line, index, num);
+                    CRUD.insertInPosition(contentUSE, line, index, num);
                     break;
                 case 'f':
                     BufferedReader an = new BufferedReader(new InputStreamReader(System.in));
@@ -60,7 +66,7 @@ public class getUserInput extends Main {
                     int linen = Integer.parseInt(an.readLine());
                     System.out.print("Read index:");
                     int indexn = Integer.parseInt(an.readLine());
-                    CRUD.ReadInPosition(contentUSE, linen, indexn);
+                    CRUD.readInPosition(contentUSE, linen, indexn);
                     break;
                 case 'g':
                     BufferedReader am = new BufferedReader(new InputStreamReader(System.in));
@@ -70,7 +76,7 @@ public class getUserInput extends Main {
                     int indexm = Integer.parseInt(am.readLine());
                     System.out.print("Number to place:");
                     int numM = Integer.parseInt(am.readLine());
-                    CRUD.ModifyInPosition(contentUSE, linem, numM, indexm);
+                    CRUD.modifyInPosition(contentUSE, linem, numM, indexm);
                     break;
                 case 'h':
                     BufferedReader ak = new BufferedReader(new InputStreamReader(System.in));
@@ -78,7 +84,7 @@ public class getUserInput extends Main {
                     int linek = Integer.parseInt(ak.readLine());
                     System.out.print("Index delete:");
                     int indexk = Integer.parseInt(ak.readLine());
-                    CRUD.RemoveInPosition(contentUSE, linek, indexk);
+                    CRUD.removeInPosition(contentUSE, linek, indexk);
                     break;
                 default:
                     System.out.println("Enter A-E");
@@ -88,4 +94,5 @@ public class getUserInput extends Main {
         while (userOption != 'Z');
 
     }
+
 }

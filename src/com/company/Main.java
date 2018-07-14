@@ -1,23 +1,8 @@
 package com.company;
-
 import java.io.*;
-
-import java.nio.file.Files;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import java.nio.file.Paths;
-
+import static com.company.GetUserInput.filename;
 
 public class Main {
-    static String[] contentUSE;
-   static String[] strings;
-   static String content;
-    static String filename;
-
-
 
     public static void printMenu() {
         System.out.println("Type A to validate content");
@@ -33,11 +18,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        new pickFile();
-        new getUserInput();
-
-
-
+        FileContentReader b=new FileContentReader();
+        b.requireFile();
+        b.readFileContent(filename);
+        GetUserInput a= new GetUserInput();
+        a.getUserInput();
 
     }
 }
