@@ -4,7 +4,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 
-public class FileContentReader extends GetUserInput {
+public class FileContentReader  {
+    String[] contentUSE;
+    String[] strings;
+    String content;
+    String filename;
 
     public String requireFile() throws IOException {
         System.out.print("Enter a file name: ");

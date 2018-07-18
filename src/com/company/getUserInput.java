@@ -5,19 +5,19 @@ import java.io.InputStreamReader;
 
 public class GetUserInput  {
     public static void main(String[] args){}
-    static String[] contentUSE;
-    String[] strings;
-    static String content;
-    static String filename;
+
 
     void getUserInput() throws IOException {
+        FileContentReader fileContentReader=new FileContentReader();
+        String filename=fileContentReader.requireFile();
+        fileContentReader.readFileContent(filename);
         UserInteractionHandler userInteractionHandler= new UserInteractionHandler();
         Character userOption = null;
         do {
 
-            for (int i = 0; i < contentUSE.length - 1; i++) {
-                System.out.println(contentUSE[i]);
-                if (i==contentUSE.length-2) userInteractionHandler.printMenu();
+            for (int i = 0; i < fileContentReader.contentUSE.length - 1; i++) {
+                System.out.println(fileContentReader.contentUSE[i]);
+                if (i==fileContentReader.contentUSE.length-2) userInteractionHandler.printMenu();
             }
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             userOption = (char) br.read();
@@ -27,14 +27,14 @@ public class GetUserInput  {
             switch (userOption) {
 
                 case 'a' | 'A':
-                    fileUtilities.validate(content);
+                    fileUtilities.validate(fileContentReader.content);
                     break;
                 case 'b':
                     System.out.print("Enter 1st num");
                     int a=userInteractionHandler.getIntegerInput();
                     System.out.print("Enter 2nd num");
                     int b = userInteractionHandler.getIntegerInput();
-                    swapper.swapLines(contentUSE, a, b);
+                    swapper.swapLines(fileContentReader.contentUSE, a, b);
                     break;
                 case 'c':
                     System.out.print("Put in this line");
@@ -45,11 +45,11 @@ public class GetUserInput  {
                     int line2 =userInteractionHandler.getIntegerInput();
                     System.out.print("This index");
                     int num2 =userInteractionHandler.getIntegerInput();
-                    swapper.swapNumber(contentUSE, num1, line1, num2, line2);
+                    swapper.swapNumber(fileContentReader.contentUSE, num1, line1, num2, line2);
                     break;
                 case 'd':
-                    String updatedString = String.join("", contentUSE);
-                    fileUtilities.writeToFile(filename, updatedString);
+                    String updatedString = String.join("", fileContentReader.contentUSE);
+                    fileUtilities.writeToFile(fileContentReader.filename, updatedString);
                     break;
                 case 'e':
                     System.out.print("Insert in line:");
@@ -58,14 +58,14 @@ public class GetUserInput  {
                     int index = userInteractionHandler.getIntegerInput();
                     System.out.print("Insert number:");
                     int num = userInteractionHandler.getIntegerInput();
-                    crud.insertInPosition(contentUSE, line, index, num);
+                    crud.insertInPosition(fileContentReader.contentUSE, line, index, num);
                     break;
                 case 'f':
                     System.out.print("Read line:");
                     int linen = userInteractionHandler.getIntegerInput();
                     System.out.print("Read index:");
                     int indexn = userInteractionHandler.getIntegerInput();
-                    crud.readInPosition(contentUSE, linen, indexn);
+                    crud.readInPosition(fileContentReader.contentUSE, linen, indexn);
                     break;
                 case 'g':
                     System.out.print("Line modify:");
@@ -74,14 +74,14 @@ public class GetUserInput  {
                     int indexm = userInteractionHandler.getIntegerInput();
                     System.out.print("Number to place:");
                     int numM = userInteractionHandler.getIntegerInput();
-                    crud.modifyInPosition(contentUSE, linem, numM, indexm);
+                    crud.modifyInPosition(fileContentReader.contentUSE, linem, numM, indexm);
                     break;
                 case 'h':
                     System.out.print("Line to delete in:");
                     int linek = userInteractionHandler.getIntegerInput();
                     System.out.print("Index delete:");
                     int indexk = userInteractionHandler.getIntegerInput();
-                    crud.removeInPosition(contentUSE, linek, indexk);
+                    crud.removeInPosition(fileContentReader.contentUSE, linek, indexk);
                     break;
                 default:
                     System.out.println("Enter A-E");
