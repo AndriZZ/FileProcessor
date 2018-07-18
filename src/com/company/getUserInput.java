@@ -58,7 +58,7 @@ public class GetUserInput  {
                     int index = Integer.parseInt(ab.readLine());
                     System.out.print("Insert number:");
                     int num = Integer.parseInt(ab.readLine());
-                    CRUD.insertInPosition(contentUSE, line, index, num);
+                    Crud.insertInPosition(contentUSE, line, index, num);
                     break;
                 case 'f':
                     BufferedReader an = new BufferedReader(new InputStreamReader(System.in));
@@ -66,7 +66,7 @@ public class GetUserInput  {
                     int linen = Integer.parseInt(an.readLine());
                     System.out.print("Read index:");
                     int indexn = Integer.parseInt(an.readLine());
-                    CRUD.readInPosition(contentUSE, linen, indexn);
+                    Crud.readInPosition(contentUSE, linen, indexn);
                     break;
                 case 'g':
                     BufferedReader am = new BufferedReader(new InputStreamReader(System.in));
@@ -76,7 +76,7 @@ public class GetUserInput  {
                     int indexm = Integer.parseInt(am.readLine());
                     System.out.print("Number to place:");
                     int numM = Integer.parseInt(am.readLine());
-                    CRUD.modifyInPosition(contentUSE, linem, numM, indexm);
+                    Crud.modifyInPosition(contentUSE, linem, numM, indexm);
                     break;
                 case 'h':
                     BufferedReader ak = new BufferedReader(new InputStreamReader(System.in));
@@ -84,7 +84,7 @@ public class GetUserInput  {
                     int linek = Integer.parseInt(ak.readLine());
                     System.out.print("Index delete:");
                     int indexk = Integer.parseInt(ak.readLine());
-                    CRUD.removeInPosition(contentUSE, linek, indexk);
+                    Crud.removeInPosition(contentUSE, linek, indexk);
                     break;
                 default:
                     System.out.println("Enter A-E");
