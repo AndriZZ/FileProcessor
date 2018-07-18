@@ -1,8 +1,8 @@
 package com.company;
 
-public class Alter {
+public class Alternator {
 
-    public static String[] turnFileIntoArrayOfStrings(String content, int lines) {
+    public String[] turnFileIntoArrayOfStrings(String content, int lines) {
         String[] array = new String[lines];
         int index = 0;
         int tempInt = 0;
@@ -11,20 +11,20 @@ public class Alter {
         while (true) {
             if (content.charAt(index) == '\n') {
                 tempInt++;
-                String temp2 = new String();
+                String temp = new String();
                 for (int i = 0; i < index - startIndex; i++) {
-                    temp2 += content.charAt(startIndex + i);
+                    temp += content.charAt(startIndex + i);
                 }
                 startIndex = index;
-                array[tempInt - 1] = temp2;
+                array[tempInt - 1] = temp;
             }
             if (index == lastIndex) {
                 tempInt++;
-                String temp2 = new String();
+                String temp = new String();
                 for (int i = 0; i < index - startIndex + 1; i++) {
-                    temp2 += content.charAt(startIndex + i);
+                    temp += content.charAt(startIndex + i);
                 }
-                array[tempInt - 1] = temp2;
+                array[tempInt - 1] = temp;
                 break;
             }
             index++;

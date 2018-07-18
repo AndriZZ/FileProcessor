@@ -2,22 +2,25 @@ package com.company;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
+
 
 public class FileContentReader extends GetUserInput {
 
-    public void requireFile(){
+    public String requireFile() throws IOException {
         System.out.print("Enter a file name: ");
-        Scanner s = new Scanner(System.in);
-        filename = s.nextLine();
+        UserInteractionHandler userInteractionHandler=new UserInteractionHandler();
+        filename = userInteractionHandler.readFilenameInput();
+        return filename;
 
     }
-    public void readFileContent(String filename) throws IOException {
-
+    public String[] readFileContent(String filename) throws IOException {
+        FileUtilities fileUtilities =new FileUtilities();
         content = new String(Files.readAllBytes(Paths.get(filename)));
-        int numberLines = FileUtilities.countLines(filename)+2;
-        strings = Alter.turnFileIntoArrayOfStrings(content,numberLines);
+        int numberLines = fileUtilities.countLines(filename)+2;
+        Alternator alternator = new Alternator();
+        strings = alternator.turnFileIntoArrayOfStrings(content,numberLines);
         contentUSE = strings;
+        return strings;
     }
 
 }

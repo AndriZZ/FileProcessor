@@ -2,7 +2,7 @@ package com.company;
 import java.io.*;
 
 public class FileUtilities {
-    public static void validate(String input) {
+    public void validate(String input) {
         String regex2 = "[\\n\\r]";
         String regex3 = "[\\040]";
         String regex4 = "[1-9][0-9]+";
@@ -17,7 +17,7 @@ public class FileUtilities {
             }
         }
     }
-    public static void writeToFile(String canonicalFilename, String text)
+    public void writeToFile(String canonicalFilename, String text)
             throws IOException
     {
         File file = new File (canonicalFilename);
@@ -25,7 +25,7 @@ public class FileUtilities {
         out.write(String.valueOf(text));
         out.close();
     }
-    public static int countLines(String filename) throws IOException {
+    public int countLines(String filename) throws IOException {
         InputStream is = new BufferedInputStream(new FileInputStream(filename));
         try {
             byte[] c = new byte[1024];
