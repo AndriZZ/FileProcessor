@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class UserInteractionHandler
 {
-    BufferedReader buffer;
-    UserInteractionHandler(BufferedReader buffer){
+   private BufferedReader buffer;
+    public UserInteractionHandler(BufferedReader buffer){
         this.buffer=buffer;
     }
 

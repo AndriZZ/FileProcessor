@@ -7,15 +7,15 @@ import java.nio.file.Paths;
 
 
 public class FileContentReader  {
-    String[] contentUSE;
-    String[] strings;
-    String content;
-    String filename;
+   private String[] contentUSE;
+   private String[] strings;
+   private String content;
+   private String filename;
 
     public String requireFile() throws IOException {
-        System.out.print("Enter a file name: ");
         BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
         UserInteractionHandler userInteractionHandler=new UserInteractionHandler(buffer);
+        userInteractionHandler.outputMessage("Enter a file name: ");
         filename = userInteractionHandler.readFilenameInput();
         return filename;
 
