@@ -1,6 +1,6 @@
 package com.company;
 
-public class Crud {
+public class CrudHandler {
 
     public String[] insertInPosition(String[] input, int line, int index, int numInsert){
         StringBuilder replacedST = new StringBuilder(String.valueOf(input[line]));

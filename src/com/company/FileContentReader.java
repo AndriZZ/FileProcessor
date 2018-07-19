@@ -1,5 +1,7 @@
 package com.company;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -12,7 +14,8 @@ public class FileContentReader  {
 
     public String requireFile() throws IOException {
         System.out.print("Enter a file name: ");
-        UserInteractionHandler userInteractionHandler=new UserInteractionHandler();
+        BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
+        UserInteractionHandler userInteractionHandler=new UserInteractionHandler(buffer);
         filename = userInteractionHandler.readFilenameInput();
         return filename;
 
