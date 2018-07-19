@@ -1,21 +1,27 @@
 package com.company;
 import java.io.*;
+import java.util.ArrayList;
 
 public class FileUtilities {
     public void validate(String input) {
-        String regex2 = "[\\n\\r]";
-        String regex3 = "[\\040]";
-        String regex4 = "[1-9][0-9]+";
-        String[] splitString = input.split(regex2);
-        for (String string : splitString) {
-            // System.out.println(string);
-            String[] splitString2 = string.split(regex3);
-            for (String string2 : splitString2) {
-                if (string2.matches(regex4)) System.out.println(string2);
+        String regexLineTab = "[\\n\\r]";
+        String regexSpaceTab = "[\\040]";
+        String regexNotZeroStart = "[1-9][0-9]+";
+        ArrayList<String> matchingInputs = new ArrayList<>();
+        String[] splitString = input.split(regexLineTab);
 
-                //System.out.println("line "+string+"element "+string2+" excluded");
+        for(int i=0;i<splitString.length;i++){
+            String[] splitString2 = splitString[i].split(regexSpaceTab);
+            for(int j=0;j<splitString2.length;j++){
+                if (splitString2[j].matches(regexNotZeroStart)) {
+                    matchingInputs.add(splitString2[j]);
+                   }
+                else{
+                System.out.println("line: "+(i+1)+" element: "+splitString2[j]+" excluded");}
             }
+
         }
+      System.out.println("Valid elements are:\n"+matchingInputs);
     }
     public void writeToFile(String canonicalFilename, String text)
             throws IOException

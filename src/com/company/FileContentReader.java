@@ -7,10 +7,10 @@ import java.nio.file.Paths;
 
 
 public class FileContentReader  {
-   private String[] contentUSE;
+   public String[] contentUSE;
    private String[] strings;
-   private String content;
-   private String filename;
+   public String content;
+   public String filename;
 
     public String requireFile() throws IOException {
         BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
