@@ -11,13 +11,14 @@ public class UserInteractionHandler
         this.buffer=buffer;
     }
 
-    public Integer getIntegerInput() throws IOException {
+    public Integer getIntegerInput(String message) throws IOException {
+        System.out.println(message);
         String s=buffer.readLine();
         Integer line=Integer.parseInt(s);
         return line;
     }
-    public Character getCharacterInput() throws IOException {
 
+    public Character getCharacterInput() throws IOException {
         Character line=(char) buffer.read();
         return line;
     }
