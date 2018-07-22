@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 public class UserInteractor  {
 
-    public void interactor() throws IOException {
+    public void interact() throws IOException {
         BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
         FileContentReader fileContentReader=new FileContentReader();
         String filename=fileContentReader.requireFile();
